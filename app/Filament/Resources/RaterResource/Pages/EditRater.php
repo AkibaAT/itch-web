@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Filament\Resources\RaterResource\Pages;
+
+use App\Filament\Resources\RaterResource;
+use Filament\Actions;
+use Filament\Resources\Pages\EditRecord;
+
+class EditRater extends EditRecord
+{
+    protected static string $resource = RaterResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\DeleteAction::make(),
+        ];
+    }
+}
