@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\GameResource\Pages;
@@ -81,7 +83,7 @@ class GameResource extends Resource
                     ->tooltip('Filter by NSFW status')
                     ->extraAttributes(function (Game $record) {
                         return [
-                            'wire:click' => '$set("tableFilters.nsfw.value", "' . (int)$record->nsfw . '")',
+                            'wire:click' => '$set("tableFilters.nsfw.value", "' . (int) $record->nsfw . '")',
                             'class' => 'transition hover:text-primary-500 cursor-pointer',
                         ];
                     })

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\App\Resources\RatingResource\Pages;
 
 use App\Filament\App\Resources\RatingResource;
@@ -13,7 +15,7 @@ class ListRatings extends ListRecords
 
     public function updatedTableRecordsPerPage(): void
     {
-        if (!in_array($this->getTableRecordsPerPage(), [10, 25, 50])) {
+        if (! in_array($this->getTableRecordsPerPage(), [10, 25, 50])) {
             $this->tableRecordsPerPage = 10;
         }
 

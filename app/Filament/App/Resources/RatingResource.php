@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\RatingResource\Pages;
@@ -74,7 +76,7 @@ class RatingResource extends Resource
                         }
 
                         return 'User ID: ' . $data['value'];
-                    })
+                    }),
             ])
             ->modifyQueryUsing(function (Builder $query) {
                 $query->where('visible', true)

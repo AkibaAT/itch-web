@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\GameResource\Pages;
 
 use App\Filament\Resources\GameResource;
@@ -11,13 +13,6 @@ class ListGames extends ListRecords
 {
     protected static string $resource = GameResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-
     public function getTabs(): array
     {
         return [
@@ -28,6 +23,13 @@ class ListGames extends ListRecords
             'abandoned' => Tab::make()->query(fn ($query) => $query->where('status', 'Abandoned')),
             'canceled' => Tab::make()->query(fn ($query) => $query->where('status', 'Canceled')),
             'on_hold' => Tab::make()->query(fn ($query) => $query->where('status', 'On hold')),
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
         ];
     }
 }

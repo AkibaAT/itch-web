@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('tags')->nullable();
             $table->unsignedFloat('rating')->nullable();
             $table->unsignedInteger('rating_count')->nullable();
-            $table->string('devlog',250)->nullable();
+            $table->string('devlog', 250)->nullable();
             $table->string('languages')->nullable();
             $table->boolean('platform_windows')->default(false);
             $table->boolean('platform_linux')->default(false);

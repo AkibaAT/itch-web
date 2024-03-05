@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\GameVersionResource\Pages;
-use App\Filament\App\Resources\GameVersionResource\RelationManagers;
 use App\Models\GameVersion;
 use Filament\Resources\Resource;
 use Filament\Tables;

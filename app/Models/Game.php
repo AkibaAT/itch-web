@@ -43,8 +43,18 @@ class Game extends Model
     ];
 
     protected $hidden = [
-        'error'
+        'error',
     ];
+
+    public function gameVersions(): HasMany
+    {
+        return $this->hasMany(GameVersion::class);
+    }
+
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
 
     protected function platforms(): Attribute
     {
@@ -57,15 +67,5 @@ class Game extends Model
                 'web' => (bool) $attributes['platform_web'],
             ],
         );
-    }
-
-    public function gameVersions(): HasMany
-    {
-        return $this->hasMany(GameVersion::class);
-    }
-
-    public function ratings(): HasMany
-    {
-        return $this->hasMany(Rating::class);
     }
 }
