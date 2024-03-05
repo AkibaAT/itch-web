@@ -15,6 +15,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "predis/predis": "^2.2",
         "tpetry/laravel-postgresql-enhanced": "^0.35.0"
     },
     "require-dev": {
