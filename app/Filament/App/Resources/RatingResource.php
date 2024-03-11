@@ -8,7 +8,8 @@ use App\Filament\App\Resources\RatingResource\Pages;
 use App\Models\Rating;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -24,11 +25,11 @@ class RatingResource extends Resource
     {
         return $table
             ->columns(Split::make([
-                Tables\Columns\TextColumn::make('published_at')
+                TextColumn::make('published_at')
                     ->width('1%')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('game.name')
+                TextColumn::make('game.name')
                     ->tooltip('Filter by this game')
                     ->disabledClick()
                     ->extraAttributes(function (Rating $record) {
@@ -38,14 +39,14 @@ class RatingResource extends Resource
                         ];
                     })
                     ->sortable(),
-                Tables\Columns\TextColumn::make('rating')
+                TextColumn::make('rating')
                     ->width('1%')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('review')
+                TextColumn::make('review')
                     ->html()
                     ->wrap(),
-                Tables\Columns\TextColumn::make('rater_id')
+                TextColumn::make('rater_id')
                     ->label('Rater ID')
                     ->numeric()
                     ->tooltip('Filter by this rater')
@@ -56,7 +57,7 @@ class RatingResource extends Resource
                             'class' => 'transition hover:text-primary-500 cursor-pointer',
                         ];
                     }),
-                Tables\Columns\TextColumn::make('event_id')
+                TextColumn::make('event_id')
                     ->label('Rating ID')
                     ->numeric()
                     ->url(fn (Rating $record) => 'https://itch.io/event/' . $record->event_id)
