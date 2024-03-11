@@ -28,7 +28,8 @@ class RatingResource extends Resource
                 TextColumn::make('published_at')
                     ->width('1%')
                     ->dateTime()
-                    ->sortable(),
+                    ->sortable()
+                    ->description('Published at', position: 'above'),
                 TextColumn::make('game.name')
                     ->tooltip('Filter by this game')
                     ->disabledClick()
@@ -38,14 +39,17 @@ class RatingResource extends Resource
                             'class' => 'transition hover:text-primary-500 cursor-pointer',
                         ];
                     })
-                    ->sortable(),
+                    ->sortable()
+                    ->description('Game', position: 'above'),
                 TextColumn::make('rating')
                     ->width('1%')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->description('Rating', position: 'above'),
                 TextColumn::make('review')
                     ->html()
-                    ->wrap(),
+                    ->wrap()
+                    ->description('Review', position: 'above'),
                 TextColumn::make('rater_id')
                     ->label('Rater ID')
                     ->numeric()
@@ -56,13 +60,15 @@ class RatingResource extends Resource
                             'wire:click' => '$set("tableFilters.rater_id.value", "' . $record->rater_id . '", true)',
                             'class' => 'transition hover:text-primary-500 cursor-pointer',
                         ];
-                    }),
+                    })
+                    ->description('Rater ID', position: 'above'),
                 TextColumn::make('event_id')
                     ->label('Rating ID')
                     ->numeric()
                     ->url(fn (Rating $record) => 'https://itch.io/event/' . $record->event_id)
-                    ->openUrlInNewTab(),
-            ])->from('md')])
+                    ->openUrlInNewTab()
+                    ->description('Rating ID', position: 'above'),
+            ])->from('xl')])
             ->filters([
                 SelectFilter::make('game')
                     ->relationship('game', 'name', fn (Builder $query) => $query->where('visible', true)),
