@@ -23,7 +23,7 @@ class RatingResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
+            ->columns(Split::make([
                 Tables\Columns\TextColumn::make('published_at')
                     ->width('1%')
                     ->dateTime()
@@ -61,7 +61,7 @@ class RatingResource extends Resource
                     ->numeric()
                     ->url(fn (Rating $record) => 'https://itch.io/event/' . $record->event_id)
                     ->openUrlInNewTab(),
-            ])
+            ])->from('md'))
             ->filters([
                 SelectFilter::make('game')
                     ->relationship('game', 'name', fn (Builder $query) => $query->where('visible', true)),
