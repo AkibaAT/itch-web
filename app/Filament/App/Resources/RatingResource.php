@@ -44,6 +44,8 @@ class RatingResource extends Resource
                             ->numeric()
                             ->sortable()
                             ->description('Rating', position: 'above'),
+                    ]),
+                    Stack::make([
                         TextColumn::make('published_at')
                             ->width('1%')
                             ->dateTime()
