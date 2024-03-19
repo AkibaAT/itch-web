@@ -65,8 +65,7 @@ class GameResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('stats_words')
                     ->numeric()
-                    ->sortable(true, fn ($query, $direction) => $query->orderByRaw('stats_words ' . $direction . ' NULLS LAST'))
-                    ->sortable(),
+                    ->sortable(true, fn ($query, $direction) => $query->orderByRaw('stats_words ' . $direction . ' NULLS LAST')),
                 Tables\Columns\TextColumn::make('status')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('rating')
