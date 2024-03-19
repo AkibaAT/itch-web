@@ -53,18 +53,19 @@ class GameResource extends Resource
                     ->url(fn (Game $record) => GameVersionResource::getUrl('index', ['tableFilters' => ['game' => ['value' => $record->id]]])),
                 Tables\Columns\TextColumn::make('stats_blocks')
                     ->numeric()
-                    ->sortable()
+                    ->sortable(true, fn ($query, $direction) => $query->orderByRaw('stats_blocks ' . $direction . ' NULLS LAST'))
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('stats_menus')
                     ->numeric()
-                    ->sortable()
+                    ->sortable(true, fn ($query, $direction) => $query->orderByRaw('stats_menus ' . $direction . ' NULLS LAST'))
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('stats_options')
                     ->numeric()
-                    ->sortable()
+                    ->sortable(true, fn ($query, $direction) => $query->orderByRaw('stats_options ' . $direction . ' NULLS LAST'))
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('stats_words')
                     ->numeric()
+                    ->sortable(true, fn ($query, $direction) => $query->orderByRaw('stats_words ' . $direction . ' NULLS LAST'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->toggleable(),
